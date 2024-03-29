@@ -18,6 +18,7 @@ function showTitle(index){
     </div>
     <div class="movie-description">
       <h3>${movie.title}</h3>
+      <p><small>${movie.year}</small> <small>${movie.runningTime}</small></p>
       <p>${movie.description}</p>
       <p><span>${genres}</span></p>
     </div>`;
@@ -33,11 +34,9 @@ function searchTitles(keyword) {
 searchInput.addEventListener('input', showSuggestions);//triggers on input change
 
 function showSuggestions() {
-  if (searchInput.value.length < 3) { //input length must be at least 3
-    suggsuggestionBox.innerHTML = ''; //clear list
-    return;
-  }
   const matchList = searchTitles(searchInput.value);
+  if (!validateInput(matchList)) return;
+
   let htmlList = '';
   matchList.forEach(match => {
     htmlList += `<li>${match}</li>`
@@ -53,8 +52,23 @@ function showSuggestions() {
   })
 }
 
-searchButton.addEventListener('click', () => {
+function validateInput(matchList) {
+  if (searchInput.value.length < 3) { //input length must be at least 3
+    suggsuggestionBox.innerHTML = ''; //clear list
+    return false;
+  }
+  
+  if (matchList.length === 0) {
+    suggsuggestionBox.innerHTML = `<ul><li>No matches found</li></ul>`;
+    return false;
+  }
+  return true;
+}
+
+searchButton.addEventListener('click', movieSearch);
+
+function movieSearch() {
   let movie = movies.find(movie => movie.title.toLowerCase().trim() === searchInput.value.toLowerCase().trim());
   showTitle(movies.indexOf(movie));
   suggsuggestionBox.innerHTML = '';
-})
+}

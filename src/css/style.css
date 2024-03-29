@@ -3,16 +3,10 @@
 
 * {
   font-family: 'Inter', sans-serif;
-  font-family: 'Poppins', sans-serif;
-  font-family: 'PT Sans', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html, body, main {
   height: 100%;
-  
 }
 
 main {
@@ -34,29 +28,83 @@ main {
 
 .centerizer {
   display: flex;
-  justify-content: center; /* Horizontal centering */
-  align-items: center; /* Vertical centering */
+  justify-content: center; 
+  align-items: center; 
   height: 100%;
 }
 
 .main-container {
   height: 100%;
 }
+
+.content-wrapper {
+  width: 700px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 48px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+h2 + p {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .search-box {
   position: relative;
-  width: 500px;
-  height: 50px;
+  width: 700px;
+
 }
+
+input[type="text"] {
+  width: calc(100% - 120px);
+  margin-right: 10px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+#search-btn {
+  height: 40px;
+  width: 100px;
+  padding: 5px 15px;
+  background-color: #0a0ac5;
+  border-radius: 5px;
+  color: #fff;
+}
+
 
 li {
   background-color: #fff;
+  color: #03021f;
   list-style: none;
+  cursor: pointer;
+  padding: 0 10px;
+
+  &:hover {
+    background-color: #0a0ac5;
+    color: #fff;
+  }
+}
+
+li:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+li:last-of-type {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .suggestion-box {
-  /* display: none; */
   position: absolute;
-  width: 100%;
+  width: calc(100% - 120px);
   height: 100%;
   background-color: #03021f;
   top: 50;
@@ -66,18 +114,18 @@ li {
 }
 
 .movie-container {
-/*   display: flex;
-  justify-content: center; 
-  align-items: center;  */
+  height: 350px;
+  width: 700px;
 }
 
 .picture-box {
   width: 200px;
   height: auto;
+  box-shadow: 1px -1px 5px #484848b9;
 }
 
 .movie-description {
-  width: 400px;
+  width: 500px;
   height: auto;
   color: #fff;
   font-size: 20px;
@@ -91,4 +139,15 @@ span {
   font-size: 14px;
   height: 26px;
   border-radius: 13px;
+  margin-right: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+small:last-child:before {
+  content: "\00B7"; /* Unicode for middle dot character */
+  color: #008000;
+  margin: 0 10px; 
+  font-size: 14px;
+  font-weight: 800;
 }
