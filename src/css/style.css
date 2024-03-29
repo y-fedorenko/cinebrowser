@@ -44,14 +44,15 @@ main {
 h2 {
   color: #fff;
   font-size: 48px;
-  margin-bottom: 5px;
   text-align: center;
+  font-weight: 800;
 }
 h2 + p {
   color: #fff;
   font-size: 18px;
   text-align: center;
   margin-bottom: 20px;
+  font-weight: 300;
 }
 
 .search-box {
@@ -67,6 +68,7 @@ input[type="text"] {
   border-radius: 5px;
   font-size: 18px;
   padding: 0 10px;
+  background-color: #fff;
 }
 
 #search-btn {
@@ -142,12 +144,14 @@ span {
   margin-right: 5px;
   cursor: pointer;
   margin-top: 5px;
+  color: #a8a6a6;
 }
 
 small:last-child:before {
   content: "\00B7"; /* Unicode for middle dot character */
   color: #008000;
-  margin: 0 10px; 
+  margin: 10px 10px; 
   font-size: 14px;
   font-weight: 800;
+  color: #a8a6a6;
 }
